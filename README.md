@@ -2,6 +2,11 @@
 
 This is the basic gauge/taiko project template. I added a `Dockerfile` and a `docker-compose.yml` to it trying to run it in an docker environment.
 
+The only adjustments in comparison to the project template are:
+
+* set `headless` to true
+* add recommended browser args as documented in the link below to `openBrowser()`
+
 ## Information I used to build this docker files
 
 * Taiko's documentation on how to run taiko with docker: https://taiko.gauge.org/#taiko-with-docker
