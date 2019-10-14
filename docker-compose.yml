@@ -6,4 +6,5 @@ services:
       - .:/project
     working_dir: /project
     command: sh -c "npm install && npm run test"
-    user: node
+    environment:
+      - DEBUG=taiko:*

@@ -6,13 +6,15 @@ The only adjustments in comparison to the project template are:
 
 * set `headless` to true
 * add recommended browser args as documented in the link below to `openBrowser()`
+* add `'--disable-features=VizDisplayCompositor'` to browser args as on some system this is necessary to start headless mode
+* Fix implementation to make tests green
 
 ## Information I used to build this docker files
 
 * Taiko's documentation on how to run taiko with docker: https://taiko.gauge.org/#taiko-with-docker
 * Taiko's deprecated docker file: https://github.com/getgauge-contrib/gauge-docker/blob/master/taiko.dockerfile
 
-## Errors I get running the docker file
+## Error I get without `'--disable-features=VizDisplayCompositor'`
 
 ```
 docker-compose up

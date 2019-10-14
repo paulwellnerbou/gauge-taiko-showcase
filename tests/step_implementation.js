@@ -1,17 +1,24 @@
 /* globals gauge*/
 "use strict";
-const { openBrowser,write, closeBrowser, goto, press, text, focus, textBox, toLeftOf } = require('taiko');
+const { openBrowser, write, closeBrowser, goto, press, text } = require('taiko');
 const assert = require("assert");
 const headless = process.env.headless_chrome.toLowerCase() === 'true';
 
+// Return a screenshot byte array (see https://github.com/getgauge/taiko/issues/779)
+gauge.screenshotFn = async function() {
+    return await screenshot({ encoding: 'base64' });
+};
+
 beforeSuite(async () => {
     await openBrowser({ headless: headless, args:[
-        '--disable-gpu',
-        '--disable-dev-shm-usage',
-        '--disable-setuid-sandbox',
-        '--no-first-run',
-        '--no-sandbox',
-        '--no-zygote'] })
+            '--disable-gpu',
+            '--disable-dev-shm-usage',
+            '--disable-setuid-sandbox',
+            '--no-first-run',
+            '--no-sandbox',
+            '--no-zygote',
+            '--disable-features=VizDisplayCompositor']
+    })
 })
 
 afterSuite(async () => {
